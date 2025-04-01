@@ -3,23 +3,23 @@ Exercícios sobre os comandos básicos em Python
 '''
 
 #1. Faça um programa que imprima o seu nome.
-def q01():
+def q1():
     print('Eduardo dos santos prado')
 
 #2. Faça um programa que imprima o produto dos valores 30 e 27.
-def q02():
+def q2():
     print(30*27)
 
 
 #3. Faça um programa que imprima a média aritmética entre os números 5, 8, 12.
-def q03():
+def q3():
     print((5+8+12)/3)
 
 #4. Faça um programa que leia e imprima um número inteiro.
-def q04():
+def q4():
     print = int(input("Digite um número inteiro: "))
 #5. Faça um programa que leia dois números reais e os imprima.
-def q05():
+def q5():
     num1 = float (input("Digite um número real: "))
     num2= float (input("Digite um número real: "))
     print (num1)
@@ -27,14 +27,14 @@ def q05():
 
 #6. Faça um programa que leia um número inteiro e imprima o seu
 #   antecessor e o seu sucessor.
-def q06():
+def q6():
     ant = int (input("Digite um número inteiro"))
     print(ant-1)
     print(ant+1)
 
 #7. Faça um programa que leia o nome o endereço e o telefone de
 #   um cliente e ao final, imprima esses dados.
-def q07():
+def q7():
     nome = (input("DIgite seu nome:"))
     endereco = (input("Digite seu endereço"))
     tel = int(input("Digite seu telefone"))
@@ -46,14 +46,14 @@ def q07():
     print(texto)
 #8. Faça um programa que leia dois números inteiros e imprima a
 #   subtração deles.
-def q08():
+def q8():
     num1 = int(input("Digite o primeiro número: "))
     num2 = int(input("Digitte o segundo número: "))
     print (num1-num2)
 
 
 #9. Faça um programa que leia um número real e imprima ¼ deste número.
-def q09():
+def q9():
     num = float(input("Digite um número: "))
     print(num/4)
 
@@ -98,7 +98,7 @@ def q12():
 #    imprima o novo saldo, considerando um reajuste de 2%.
 def q13():
     num = float(input("Digite o seu saldo: "))
-    
+    print(f'Saldo com ajuste de 2%: R$ {num*1.02}')
 
 
 
@@ -112,16 +112,28 @@ def q14():
     print(perimetro)
     area2 = (base *altura) 
     print(area2)
-q14()
 
 #15. Faça um programa que leia o valor de um produto, o percentual
 #    do desconto desejado e imprima o valor do desconto e o valor
 #    do produto subtraindo o desconto.
-
+def q15():
+    valor_produto = float(input("valor do produto : R$ "))
+    porcentagem = float(input("O valor da porcetagem do desconto: "))
+    valor_desconto = round(valor_produto *porcentagem/100, 2)
+    valor_final = valor_produto-valor_desconto
+    resultado = f'''
+    valor do produto : R$ {valor_produto}
+    valor do desconto ({porcentagem}%) : R$ {valor_desconto}
+    valor final do produto : {valor_final}
+    '''
+    print(resultado)
 #16. Faça um programa que calcule o reajuste do salário de um
 #    funcionário. Para isso, o programa deverá ler o salário atual
 #    do funcionário e ler o percentual de reajuste. Ao final imprimir
 #    o valor do novo salário.
+def q16():
+    
+
 
 #17. Faça um programa que calcule a conversão entre graus centígrados
 #    e Fahrenheit. Para isso, leia o valor em centígrados e calcule
@@ -152,3 +164,6 @@ q14()
 #20. Faça um programa que efetue a apresentação do valor da conversão
 #    em real (R$) de um valor lido em dólar (US$). Para isso, será
 #    necessário também ler o valor da cotação do dólar.
+
+questao = int (input('Questão a executar: '))
+eval(f'q{questao}()')
