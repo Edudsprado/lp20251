@@ -1,6 +1,12 @@
 '''
 Exercícios sobre os comandos de condição em python
 '''
+    
+from datetime import date, datetime
+
+HOJE = datetime.now()
+
+
 
 def exemplo_if_else():
     media = float(input('Média: '))
@@ -23,7 +29,7 @@ def exemplo_if_elif_else():
 
 #1. Faça um programa que leia dois valores numéricos inteiros e efetue
 #   a adição, caso o resultado seja maior que 10, apresentá-lo.
-def q1(2):
+def q1():
     num1 = int(input('Digite um número: '))
     num2 = int(input('Digite outro número: '))
     soma = num1 + num2
@@ -64,11 +70,58 @@ def q5():
 #9. Faça um programa que permita entrar com o ano de nascimento da pessoa e com o
 #   ano atual. O programa deve imprimir a idade da pessoa. Não se esqueça de
 #   verificar se o ano de nascimento informado é válido.
+def q9():
+    data_str = input('Data de Nascimento (dd/mm/aaaa): ')
+    data_nascimento = datetime.strptime(data_str, '%d/%m/%Y')
+
+    if (data_nascimento > HOJE):
+        print('Data inválida! Você nem nasceu ainda.')
+    else:
+        diferenca = HOJE - data_nascimento
+        dias_totais = diferenca.days
+        anos = dias_totais // 365
+        dias_restantes = dias_totais % 365
+
+        print(f'Idade: {anos} anos e {dias_restantes} dias.')
 
 #10. Faça um programa que leia três números inteiros e imprima os três em ordem
 #crescente.
+def q10():
+    a = int(input("O primeiro inteiro "))
+    b = int(input("O segundo inteiro "))
+    c = int(input("O terceiro inteiro "))
+
+    if (a<b<c):
+        print(f'{a} {b} {c}')
+    if (b<a<c):
+        print(f'{b} {a} {c}')
+    if (c<a<b):
+        print (f'{c} {a} {b}')
+    if (a<c<b):
+        print (f'{a} {c} {b}')
+    if (b<c<a):
+        print (f'{b} {c} {a}')
+    if (c<b<a):
+        print (f'{c} {b} {a}')
 
 #11. Faça um programa que leia 3 números e imprima o maior deles.
+def q11():
+    a = int(input("O primeiro inteiro "))
+    b = int(input("O segundo inteiro "))
+    c = int(input("O terceiro inteiro "))
+
+    if (a>b>c):
+        print(f'{a} é o maior numero')
+    if (b>a>c):
+        print(f'{b}')
+    if (c>a>b):
+        print (f'{c}')
+    if (a>c>b):
+        print (f'{a}')
+    if (b>c>a):
+        print (f'{b}')
+    if (c>b>a):
+        print (f'{c}')
 
 #12. Faça um programa que leia a idade de uma pessoa e informe:
 #• Se é maior de idade
