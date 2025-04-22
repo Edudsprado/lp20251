@@ -42,11 +42,35 @@ def q1():
 #   Caso o valor somado seja maior que 20, este deverá ser apresentado
 #   somando-se a ele mais 8, caso o valor somado seja menor ou igual a
 #   20, este deverá ser apresentado subtraindo-se 5.
+def q2():
+    num1 = int(input('Digite um número: '))
+    num2 = int(input('Digite outro número: '))
+    soma = num1 + num2
+    if soma > 20:
+        res = soma + 8
+        print(f'{res} é maior que 20')
+    else:
+        resu = soma - 5
+        print(f'{resu} não é maior que 20')
 
 #3. Faça um programa que leia um número e imprima uma das duas mensagens:
 #   "É múltiplo de 3"ou "Não é múltiplo de 3".
+def q3():
+    num1 = int(input('Digite um número: '))
+    resul = (num1%3)
+    if resul == 0 :
+        print("É mútiplo de 3")
+    else:
+        print("não é mútilplo")
 
 #4. Faça um programa que leia um número e informe se ele é ou não divisível por 5.
+def q4():
+    num1 = int(input('Digite um número: '))
+    resul = (num1%5)
+    if resul == 0 :
+        print("É mútiplo de 5")
+    else:
+        print("não é mútilplo de 5")
 
 #5. Faça um programa que leia um número e informe se ele é divisível por 3 e por 7.
 def q5():
@@ -60,12 +84,35 @@ def q5():
 #   estatutários. O valor máximo da prestação não poderá ultrapassar 30% do salário
 #   bruto. Faça um programa que permita entrar com o salário bruto
 #   e o valor da prestação e informar se o empréstimo pode ou não ser concedido.
-
+def q6():
+    salario = int(input("Digite o valor do seu salário: "))
+    prestacao = int(input("Digite o quanto pode pagar de prestação: "))
+    if prestacao == 0.30*salario :
+        print("O emprestimo será concedido")
+    else:
+        print("Valor insuficiente para emprestimo")
 #7. Faça um programa que leia um número e indique se o número está compreendido
 #   entre 20 e 50 ou não.
+def q7(): 
+    num1 = int(input('Digite um número: '))
+    if num1 > 20 and num1 < 50 :
+        print("O número está compreendido")
+    else :
+        print("O número não está compreendido")
+
+
 
 #8. Faça um programa que leia um número e imprima uma das mensagens:
 #   "Maior do que 20", "Igual a 20"ou "Menor do que 20".
+def q8():
+    num1 = int(input('Digite um número: '))
+    if num1 > 20 :
+        print("O número é maior que 20")
+    if num1 == 20 :
+        print("O numero é igual a 20")
+    if num1 < 20 :
+        print("O numero é menor que 20")
+
 
 #9. Faça um programa que permita entrar com o ano de nascimento da pessoa e com o
 #   ano atual. O programa deve imprimir a idade da pessoa. Não se esqueça de
