@@ -174,12 +174,33 @@ def q11():
 #• Se é maior de idade
 #• Se é menor de idade
 #• Se é maior de 65 anos
-
+def q12():
+    idade = int(input("Digite a sua idade: "))
+    if idade > 18 :
+        print("Maior de idade ")
+    if idade <= 17 :
+        print("Menor de idade ")
+    if idade > 65 :
+        print("Idoso")
 #13. Faça um programa que permita entrar com o nome, a nota da prova 1 e a nota
 #da prova 2 de um aluno. O programa deve imprimir o nome, a nota da prova 1,
 #a nota da prova 2, a média das notas e uma das mensagens: "Aprovado",
 #"Reprovado"ou "em Prova Final"(a média é 7 para aprovação, menor que 3 para
 #reprovação e as demais em prova final).
+
+def q13():
+    nome = input("Digite o seu nome: ")
+    not1 = int(input("Digite a nota do primeiro semestre: "))
+    not2 = int(input("Digite a nota do segundo semestre: "))
+
+    media = (not1 + not2) / 2  # Corrigido o cálculo da média
+
+    if media > 7:
+        print(f"{nome} está Aprovado")
+    elif media <= 3:
+        print(f"{nome} Reprovado")
+    else:  # Media entre 3 e 7, então está de Prova Final
+        print(f"{nome} está de Prova final")
 
 #14. Faça um programa que permita entrar com o salário de uma pessoa e imprima o
 #desconto do INSS segundo a tabela seguir:
@@ -261,11 +282,56 @@ def q11():
 #Frango         250cal Mousse diet      170cal Suco de melão     100cal
 #Carne          350cal Mousse chocolate 200cal Refrigerante diet 65cal
 
+def q23():
+    menu_prato_entrada = '''
+    [1] - Vegetariano (180 kcal)
+    [2] - Peixe (230 kcal)
+    [3] - Frango (250 kcal)
+    [4] - Carne (350 kcal)
+    Digite a opção de entrada[1-4]: 
+    '''
+    menu_bebida = '''
+    [1] - Chá (20 kcal)
+    [2] - Suco de Laranja (70 kcal)
+    [3] - Suco de Melão (100 kcal)
+    [4] - Refrigerante Diet (65 kcal)
+    Digite a opção da bebida[1-4]:
+    '''
+    menu_sobremesa = '''
+    [1] - Abacaxi (75 kcal)
+    [2] - Sorvete Diet (110 kcal)
+    [3] - Mousse Diet (170 kcal)
+    [4] - Mousse Chocolate (200 kcal)
+    Digite a opção de sobremesa[1-4]:
+    '''
+    prato_entrada = int(input(menu_prato_entrada))
+    bebida = int(input(menu_bebida))
+    sobremesa = int(input(menu_sobremesa))
+
+    cal = 0
+
+    cal += 180 if prato_entrada == 1 else 0;
+    cal += 230 if prato_entrada == 2 else 0;
+    cal += 250 if prato_entrada == 3 else 0;
+    cal += 350 if prato_entrada == 4 else 0;
+    cal += 20 if bebida == 1 else 0;
+    cal += 70 if bebida == 2 else 0;
+    cal += 100 if bebida == 3 else 0;
+    cal += 65 if bebida == 4 else 0;    
+    cal += 75 if sobremesa == 1 else 0;
+    cal += 110 if sobremesa == 2 else 0;
+    cal += 170 if sobremesa == 3 else 0;
+    cal += 200 if sobremesa == 4 else 0;
+
+    print(f'Total de calorias do pedido: {cal} kcal')
+
 #24. A polícia rodoviária resolveu fazer cumprir a lei e vistoriar veículos para
 #cobrar dos motoristas o DUT. Sabendo-se que o mês em que o emplacamento do
 #carro deve ser renovado é determinado pelo último número da placa do mesmo,
 #faça um programa que, a partir da leitura da placa do carro, informe o mês
 #em que o emplacamento deve ser renovado.
+def q24():
+    placa=input("DIgite a placa do carro: ")
 
 #25. A prefeitura contratou uma firma especializada para manter os níveis de
 #poluição considerados ideais para um país do 1º mundo. As indústrias,
@@ -277,6 +343,8 @@ def q11():
 #0,3 1º grupo
 #0,4 1º e 2º grupos
 #0,5 1º, 2º e 3º grupos
+
+
 
 questao = int(input('Questão a executar: '))
 eval(f'q{questao}()')
