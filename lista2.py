@@ -210,6 +210,21 @@ def q13():
 #Maior que R$1200,00 e menor ou igual a R$2000,00 25%
 #Maior que R$2000,00 30%
 
+def q14():
+    salario = float(input("Digite seu salario: "))
+    if salario <= 600:
+        print("isento")
+    elif (salario > 600) and (salario< 1200):
+        salario = salario * 0.20
+        print("O desconto será de ",salario)
+    elif salario > 1200 and salario < 2000 :
+        salario = salario * 0.25
+        print("O desconto sera de", salario)
+    elif salario > 2000 :
+        salario = salario *0.30
+        print("O desconto sera de", salario)
+
+    
 #15. Um comerciante comprou um produto e quer vendê-lo com um lucro de 45% se o
 #valor da compra for menor que R$20,00, caso contrário, o lucro será de 30%.
 #Faça um programa que leia o valor do produto e imprima o valor da venda.
@@ -260,6 +275,19 @@ def q13():
 #de 501 a 1000 30% do valor do saldo médio
 #de 1001 a 3000 40% do valor do saldo médio
 #acima de 3001 50% do valor do saldo médio
+def q20():
+    smed = float(input("Digite o seu saldo medio: "))
+    if smed <= 500:
+        print("Não possui crédito.")
+    elif smed >= 501 and smed <= 1000:
+        credito = smed * 0.30
+        print(f"O valor do crédito é: R$ {credito:.2f}")
+    elif smed >= 1001 and smed <= 3000:
+        credito = smed * 0.40
+        print(f"O valor do crédito é: R$ {credito:.2f}")
+    else: 
+        credito = smed * 0.50
+        print(f"O valor do crédito é: R$ {credito:.2f}")
 
 #21. A biblioteca de uma Universidade deseja fazer um programa que leia o nome do
 #livro que será emprestado, o tipo de usuário (professor ou aluno) e possa
@@ -268,10 +296,49 @@ def q13():
 #• Nome do livro:
 #• Tipo de usuário:
 #• Total de dias:
+def q21():
+    nome = input ("DIgite o nome do livro: ")
+    name = input ("Digite seu nome: ")
+    menu_usuario = '''
+    [1] aluno 3 dias de empréstimo
+    [2] professor 10 dias de empréstimo
 
+    '''
+    empre = int(input(menu_usuario))
+    if empre == 1:
+        print(f"{name}, você tem 3 dias para devolver o livro {nome} ")
+    elif empre == 2:
+        print(f"{name}, você tem 10 para devolver o livro {nome}")
+    else:
+        print("Opção invalida")
 #22. Construa um programa que leia o percurso em quilômetros, o tipo do carro e
 #informe o consumo estimado de combustível, sabendo-se que um carro tipo A faz
 #12 km com um litro de gasolina, um tipo B faz 9 km e o tipo C 8 km por litro.
+def q22():
+    menu_carro = '''
+    [1] - Tipo A (12 km/l)
+    [2] - Tipo B (9 km/l)
+    [3] - Tipo C (8 km/l)
+    Digite o tipo de carro [1-3]
+    '''
+
+    Km = float(input("Digite o percurso em quilômetros: "))
+    tipo_carro = int(input(menu_carro))
+
+    if tipo_carro == 1:
+        consumo = Km / 12
+    elif tipo_carro == 2:
+        consumo = Km / 9
+    elif tipo_carro == 3:
+        consumo = Km / 8
+    else:
+        print("Tipo inválido!")
+        return
+
+    print(f'O consumo estimado de combustível é:' , consumo)
+
+
+
 
 #23. Crie um programa que informe a quantidade total de calorias de uma refeição
 #a partir da escolha do usuário que deverá informar o prato, a sobremesa, e
@@ -332,6 +399,39 @@ def q23():
 #em que o emplacamento deve ser renovado.
 def q24():
     placa=input("DIgite a placa do carro: ")
+    # Pega o último caractere da placa
+    ultimo_digito = placa[-1]
+
+    # Converte o último caractere para número inteiro
+    numero = int(ultimo_digito)
+
+    # Verifica qual é o mês de renovação conforme o número
+    if numero == 1:
+        mes = "Janeiro"
+    elif numero == 2:
+        mes = "Fevereiro"
+    elif numero == 3:
+        mes = "Março"
+    elif numero == 4:
+        mes = "Abril"
+    elif numero == 5:
+        mes = "Maio"
+    elif numero == 6:
+        mes = "Junho"
+    elif numero == 7:
+        mes = "Julho"
+    elif numero == 8:
+        mes = "Agosto"
+    elif numero == 9:
+        mes = "Setembro"
+    elif numero == 0:
+        mes = "Outubro"
+    else:
+        mes = "Número inválido!"
+
+    # Mostra o mês correspondente
+    print(f"O emplacamento deve ser renovado em: {mes}")
+
 
 #25. A prefeitura contratou uma firma especializada para manter os níveis de
 #poluição considerados ideais para um país do 1º mundo. As indústrias,
