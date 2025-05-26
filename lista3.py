@@ -3,15 +3,35 @@ Lista de Exercícios referentes a estruturas de iteração (repetição)
 '''
 
 #1.Faça um programa que imprima todos os números de 1 até 100.
+def q1():
+    for i in range(1, 101):  # range vai de 1 até 100 (o 101 não entra)
+        print(i)
+
 
 #2. Faça um programa que imprima todos os números pares de 100 até 1.
+def q2():
+    for i in range(0, 100 , +2):
+        print(i)
 
 #3. Faça um programa que imprima os múltiplos de 5, no intervalo de 1 até 500.
+def q3():
+    for i in range (1, 501):
+        if i % 5 ==0 :
+            print(i)
 
 #4. Faça um programa que permita entrar com o nome, a idade e o sexo de 20
 #pessoas.O programa deve imprimir o nome da pessoa se ela for do sexo masculino
 #e tiver mais de 21 anos.
+def q4():
+    for i in range(20):  # repete 20 vezes
+        nome = input("Digite o nome: ")
+        idade = int(input("Digite a idade: "))
+        sexo = input("Digite o sexo (M/F): ").upper()
 
+        if sexo == "M" and idade > 21:
+            print(f"{nome} tem mais de 21 anos e é do sexo masculino.")
+
+    
 #5. Sabendo-se que a unidade lógica e aritmética calcula o produto através de somas
 #sucessivas, crie um programa que calcule o produto de dois números inteiros
 #lidos. Suponha que os números lidos sejam positivos.
