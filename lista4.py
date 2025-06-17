@@ -1,4 +1,6 @@
 import random
+from Biblio import input_int
+
 '''
 Lista de Exercícios referentes a coleções e arquivos em python
 '''
@@ -7,13 +9,47 @@ Lista de Exercícios referentes a coleções e arquivos em python
 #permita que o usuário digite um número inteiro para ser buscado na lista, se
 #for encontrado o programa deve imprimir a posição desse número na lista, caso
 #contrário, deve imprimir a mensagem: "Nao encontrado!".
+def q1():
+    lista = []
+    for _ in range(15):
+        lista.append(random.randrange(100))
+    print(lista)
+    numero = int(input_int('Digite um número a ser buscado: ',0,100))
+    try:
+        posicao = lista.index(numero)
+    except ValueError:
+        print(f'{numero} não localizado na lista')
+    else:
+        print(f'Localizado na posição: {posicao}')
 
 #2. Faça um programa que armazene 10 letras em uma lista e imprima uma listagem
 #numerada.
+def q2():
+    letras = []
+    for _ in range(10):
+        letras.append(chr(random.randrange(65,91)))
+    cont = 1
+    for c in letras:
+        print(f'{cont}: {c}')
+        cont+=1
+
+#2.1 Faça um programa que peça ao usuário para informar a qtde de caracteres
+# para a geração de uma senha aleatória. Ao final o programa deve exibir a
+# senha sugerida. (ASCII 40-126)
+
+def q21():
+    qtde = input_int('Qtde de caracteres para a senha: ',8,20)
+    senha = ''
+    for _ in range(qtde):
+        senha += int(random.randint(40, 126))
+    print(f'Senha sugerida: {senha}')
+
 
 #3. Construa uma programa que armazene 15 números em uma lista e imprima
 #uma listagem numerada contendo o número e uma das mensagens: par ou ímpar.
-
+def q3():
+    num =  []
+    
 #4. Faça um programa que armazene 8 números em uma lista e imprima todos os
 #números. Ao final, imprima o total de números múltiplos de seis.
 
@@ -94,3 +130,7 @@ Lista de Exercícios referentes a coleções e arquivos em python
 
 #20. Faça um programa que leia a matrícula e a média de 100 alunos. Ordene da maior
 #para a menor nota e imprima uma relação contendo todas as matrículas e médias.
+
+
+questao = int(input('Questão a ser executada: '))
+eval(f'q{questao}()')
