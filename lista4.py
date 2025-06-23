@@ -48,16 +48,48 @@ def q21():
 #3. Construa uma programa que armazene 15 números em uma lista e imprima
 #uma listagem numerada contendo o número e uma das mensagens: par ou ímpar.
 def q3():
-    num =  []
+
+    numeros = []
+
+    for i in range(15):
+        num = int(input(f"Digite o {i+1}º número: "))
+        numeros.append(num)
+
+    print("\nNúmeros armazenados:")
+    for i, num in enumerate(numeros, start=1):
+        tipo = "par" if num % 2 == 0 else "ímpar"
+        print(f"{i}. {num} → {tipo}")
+
+
     
 #4. Faça um programa que armazene 8 números em uma lista e imprima todos os
 #números. Ao final, imprima o total de números múltiplos de seis.
+def q5():
+    num = [] 
+
 
 #5. Faça um programa que armazene as notas das provas 1 e 2 de 15 alunos. Calcule
 #e armazene a média arredondada. Armazene também a situação do aluno: 1-
 #Aprovado ou 2-Reprovado. Ao final o programa deve imprimir uma listagem
 #contendo as notas, a média e a situação de cada aluno em formato tabulado.
 #Utilize quantas listas forem necessárias para armazenar os dados.
+def q5():
+    diario = []
+    contchar = 65
+    for _ in range(15):
+        aluno = dict()
+        aluno['nome'] = chr(contchar)
+        contchar += 1
+        aluno['n1'] = random.randrange(0,11)
+        aluno['n2'] = random.randrange(0,11)
+        aluno['media'] = round((aluno['n1'] + aluno['n2'])/2,1)
+        aluno['situacao'] = 'AP' if aluno['media']>=6 else 'RP'
+        diario.append(aluno)
+    
+    resultado = 'NOME\tN1\tN2\tMEDIA\tSITUACAO\n'
+    for a in diario:
+        resultado += f'{a["nome"]}\t{a["n1"]}\t{a["n2"]}\t{a["media"]}\t{a["situacao"]}\n'
+    print(resultado)
 
 #6. Construa um programa que permita armazenar o salário de 20 pessoas. Calcular
 #e armazenar o novo salário sabendo-se que o reajuste foi de 8%. Imprimir uma
