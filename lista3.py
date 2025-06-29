@@ -4,8 +4,17 @@ Lista de Exercícios referentes a estruturas de iteração (repetição)
 
 #1.Faça um programa que imprima todos os números de 1 até 100.
 def q1():
-    for i in range(1, 101):  # range vai de 1 até 100 (o 101 não entra)
-        print(i)
+    x = 0
+    while x < 10:
+        if x == 7:
+            break #interrompe a execução do laço
+        x += 1
+        if x == 3:
+            continue #salta para a próxima iteração (não vai imprimir o 3)
+        print(x)
+    else:
+        print('Fim!') #nunca é executado, já que x nunca é >= 10
+
 
 
 #2. Faça um programa que imprima todos os números pares de 100 até 1.
@@ -35,6 +44,15 @@ def q4():
 #5. Sabendo-se que a unidade lógica e aritmética calcula o produto através de somas
 #sucessivas, crie um programa que calcule o produto de dois números inteiros
 #lidos. Suponha que os números lidos sejam positivos.
+def q5():
+    num1= int(input("Digite um numero: "))
+    num2= int(input("Digite um numero: "))
+
+    res=0
+    for _ in range(num1):
+        res = res+num2
+    print(res)    
+
 
 #6. Crie um programa que imprima os 20 primeiros termos da série de Fibonacci.
 #Observação: os dois primeiros termos desta série são 1 e 1 e os demais são gerados
@@ -42,11 +60,35 @@ def q4():
 #• 1 + 1 = 2, terceiro termo;
 #• 1 + 2 = 3, quarto termo, etc.
 # 1 1 2 3 5 8 13 21
+   
+
+
 
 #7. Crie um programa que permita entrar com o nome, a nota da
 #prova 1 e da prova 2 de 15 alunos. Ao final, imprimir uma listagem, contendo:
 #nome, nota da prova 1, nota da prova 2, e média das notas de cada aluno. Ao final,
 #imprimir a média geral da turma.
+def q7():
+    lista = []
+    soma_media = 0
+    for i in range(3):
+        nome = input("Digite seu nome: ")
+        n1 = float(input("Digite a nota da prova 1: "))
+        n2 = float(input("Digite a nota da prova 2: "))
+    media = (n1 + n2) / 2
+    soma_media += media
+    lista.append((nome, n1, n2, media))  # Armazena os dados de cada aluno
+    
+    for aluno in lista:
+        nome, n1, n2, media = aluno
+        print(f"{nome}\t{n1:.1f}\t{n2:.1f}\t{media:.1f}")
+
+    media_geral = soma_media / 3  # ou /15 no final
+    print(f"\nMédia geral da turma: {media_geral:.1f}")
+    print(f"{nome} teve média {media}")
+    
+
+
 
 #8. Faça um programa que permita entrar com o nome e o salário bruto de 10 pessoas.
 #Após ler os dados, imprimir o nome e o valor da alíquota do imposto de renda
@@ -55,6 +97,27 @@ def q4():
 #Salário menor que R$1300,00 Isento
 #Salário maior ou igual a R$1300,00 e menor que R$2300,00 10% do salário bruto
 #Salário maior ou igual a R$2300,00 15% do salário bruto
+def q8():
+    total_func = []
+    nome = ["Edu", "marcos"," rainer", "leo", "pedro"]
+    for _ in range(10):
+        salario = float(input("Digite o salário: "))
+
+        if salario < 1300:
+            print("Isento")
+        elif 1300 <= salario < 2300:
+            desconto = salario * 10 / 100
+            salario -= desconto
+            print(f"{nome}, salário com 10% de desconto: R${salario}")
+        elif salario >= 2300:
+            desconto = salario * 15 / 100
+            salario -= desconto
+            print(f"{nome}, salário com 15% de desconto: R${salario}")
+        
+
+
+
+
 
 #9. No dia da estreia do filme "Procurando Dory", uma grande emissora de TV realizou
 #uma pesquisa logo após o encerramento do filme. Cada espectador respondeu
