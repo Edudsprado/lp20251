@@ -59,8 +59,17 @@ def q3():
     for i, num in enumerate(numeros, start=1):
         tipo = "par" if num % 2 == 0 else "ímpar"
         print(f"{i}. {num} → {tipo}")
-
-
+def q35():
+    arquivo = open('q3.csv', 'r')
+    for linha in arquivo:
+        numeros = linha.split(';')
+        resultado = ''
+        for numero in numeros:
+            resultado+=f'{numero}\t{"PAR" if int(numero)%2==0 else "IMPAR"}\n'
+        arquivo_saida = open('questao3.out','w')
+        arquivo_saida.write(resultado)
+    arquivo.close()
+    arquivo_saida.close()#
     
 #4. Faça um programa que armazene 8 números em uma lista e imprima todos os
 #números. Ao final, imprima o total de números múltiplos de seis.
@@ -92,10 +101,10 @@ def q5():
     media = []
 
     for x in range(4):
-         media.append( notas[x] + notas2[x]/2)
+        media.append( notas[x] + notas2[x]/2)
         if media >= 6 :
             print("Aprovado")
-            else :
+        else :
             print("Reprovado")
 
 
@@ -125,6 +134,34 @@ def q5():
 #• lucro < 10%
 #• 10% <= lucro <= 20%
 #• lucro > 20%
+
+def q7():
+    arquivo = open('q7.csv', 'r')
+    produtos = []
+    l_10 = 0
+    l_10_20 = 0
+    l_20 = 0
+    res = ''
+    for linha in arquivo:
+        dados = linha.split(';')
+        produto = dict()
+        produto['nome'] = dados[0]
+        produto['compra'] =float (dados[1])
+        produto['venda'] = float(dados[2])
+        produto['lucro'] =  produto['venda'] /produto['compra'] -1
+        produtos.append(produto)
+        l_10 += 1 if produto['lucro'] < 0.1 else 0;
+        l_10_20 += 1 if produto['lucro'] > 0.1 and produto['lucro'] <= 0.2 else 0;
+        l_20 += 1 if produto['lucro'] > 0.2 else 0;
+    arquivo.close()
+
+
+    print(f'Lucro < 10%: {l_10}')
+    print(f'Lucro entre 10% e 20%: {l_10_20}')
+    print(f'Lucro > 20%: {l_20}')
+
+
+
 
 #8. Construa um programa que armazene o código, a quantidade, o valor de compra
 #e o valor de venda de 30 produtos. A listagem pode ser de todos os produtos ou
