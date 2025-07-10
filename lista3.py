@@ -1,44 +1,48 @@
 '''
 Lista de Exercícios referentes a estruturas de iteração (repetição)
 '''
+import random
 
 #1.Faça um programa que imprima todos os números de 1 até 100.
 def q1():
-    x = 0
-    while x < 10:
-        if x == 7:
-            break #interrompe a execução do laço
-        x += 1
-        if x == 3:
-            continue #salta para a próxima iteração (não vai imprimir o 3)
-        print(x)
-    else:
-        print('Fim!') #nunca é executado, já que x nunca é >= 10
+    for i in range(0,101):
+        print(i)
+
+    
 
 
 
 #2. Faça um programa que imprima todos os números pares de 100 até 1.
 def q2():
-    for i in range(0, 100 , +2):
+    for i in range(100, 1 , -2):
         print(i)
 
 #3. Faça um programa que imprima os múltiplos de 5, no intervalo de 1 até 500.
 def q3():
     for i in range (1, 501):
-        if i % 5 ==0 :
+        if i % 5 ==0:
             print(i)
 
 #4. Faça um programa que permita entrar com o nome, a idade e o sexo de 20
 #pessoas.O programa deve imprimir o nome da pessoa se ela for do sexo masculino
 #e tiver mais de 21 anos.
 def q4():
-    for i in range(20):  # repete 20 vezes
-        nome = input("Digite o nome: ")
-        idade = int(input("Digite a idade: "))
-        sexo = input("Digite o sexo (M/F): ").upper()
+    resultado = []
 
-        if sexo == "M" and idade > 21:
-            print(f"{nome} tem mais de 21 anos e é do sexo masculino.")
+    for _ in range(3):  
+        name = input("Digite o seu nome: ")
+        ida = int(input("Digite a sua idade: "))
+        sex = input("Digite o seu sexo (m/f): ")
+
+        if sex == "m" and ida > 21:
+            resultado.append(name)
+
+    print('Relação de homens maiores de 21:\n')
+    if resultado:
+        for nome in resultado:
+            print(nome)
+    else:
+        print("Nenhum homem maior de 21 foi registrado.")
 
     
 #5. Sabendo-se que a unidade lógica e aritmética calcula o produto através de somas
@@ -60,7 +64,17 @@ def q5():
 #• 1 + 1 = 2, terceiro termo;
 #• 1 + 2 = 3, quarto termo, etc.
 # 1 1 2 3 5 8 13 21
-   
+def q6():
+    t1 = 1
+    t2 = 1
+
+    print(t1, t2, end =' ')   
+    for _ in range(18):
+        t3 = t1+t2
+        t1 = t2
+        t2 = t3
+
+        print(t3, end = ' ')
 
 
 
@@ -69,23 +83,27 @@ def q5():
 #nome, nota da prova 1, nota da prova 2, e média das notas de cada aluno. Ao final,
 #imprimir a média geral da turma.
 def q7():
-    lista = []
-    soma_media = 0
-    for i in range(3):
-        nome = input("Digite seu nome: ")
-        n1 = float(input("Digite a nota da prova 1: "))
-        n2 = float(input("Digite a nota da prova 2: "))
-    media = (n1 + n2) / 2
-    soma_media += media
-    lista.append((nome, n1, n2, media))  # Armazena os dados de cada aluno
-    
-    for aluno in lista:
-        nome, n1, n2, media = aluno
-        print(f"{nome}\t{n1:.1f}\t{n2:.1f}\t{media:.1f}")
+    turma = []
+    soma_medias = 0
 
-    media_geral = soma_media / 3  # ou /15 no final
-    print(f"\nMédia geral da turma: {media_geral:.1f}")
-    print(f"{nome} teve média {media}")
+    for _ in range(2):  
+        nome = input("Digite o seu nome: ")
+        prova = float(input("Digite a nota 1: "))
+        prova2 = float(input("Digite a nota 2: "))
+
+        media = (prova + prova2) / 2
+        soma_medias += media
+        aluno = [nome, prova, prova2, media]
+        turma.append(aluno)
+
+    print("Listagem de alunos e notas:")
+    for aluno in turma:
+        print(aluno)
+
+    media_geral = soma_medias / len(turma)
+    print(f"Média geral da turma: {media_geral}")
+
+
     
 
 
@@ -98,22 +116,20 @@ def q7():
 #Salário maior ou igual a R$1300,00 e menor que R$2300,00 10% do salário bruto
 #Salário maior ou igual a R$2300,00 15% do salário bruto
 def q8():
-    total_func = []
-    nome = ["Edu", "marcos"," rainer", "leo", "pedro"]
-    for _ in range(10):
-        salario = float(input("Digite o salário: "))
+    nomes = ["Edu", "Marcos", "Rainer", "Leo", "Pedro"]
+    print(nomes)
 
-        if salario < 1300:
-            print("Isento")
-        elif 1300 <= salario < 2300:
-            desconto = salario * 10 / 100
-            salario -= desconto
-            print(f"{nome}, salário com 10% de desconto: R${salario}")
-        elif salario >= 2300:
-            desconto = salario * 15 / 100
-            salario -= desconto
-            print(f"{nome}, salário com 15% de desconto: R${salario}")
+    for nome in nomes:
+        salario = float(input(f"Digite o salário de {nome}: "))
         
+        if salario < 1300:
+            print(f"{nome}: Isento de desconto. Salário: R${salario}")
+        elif salario < 2300:
+            salario_descontado = salario * 0.9
+            print(f"{nome}: Salário com 10% de desconto: R${salario_descontado}")
+        else:
+            salario_descontado = salario * 0.85
+            print(f"{nome}: Salário com 15% de desconto: R${salario_descontado}")
 
 
 
@@ -146,6 +162,18 @@ def q8():
 #ano, e um país B com 7 milhões de habitantes e uma taxa de natalidade de 2% ao
 #ano, fazer um programa que calcule e imprima o tempo necessário para que a
 #população do país A ultrapasse a população do país B.
+def q12():
+    pop_a = 5000000
+    pop_b = 7000000
+    anos = 0
+
+    while pop_a <= pop_b:
+        pop_a = pop_a + (pop_a * 0.03)
+        pop_b = pop_b + (pop_b * 0.02)
+        anos += 1
+
+    print(f"Serão necessários {anos} anos para que o país A ultrapasse o país B.")
+
 
 #13. Uma empresa de fornecimento de energia elétrica faz a leitura mensal dos medidores
 #de consumo. Para cada consumidor, são digitados os seguintes dados:
@@ -168,6 +196,8 @@ def q8():
 #imprima:
 #• total de pessoas com menos de 21 anos
 #• total de pessoas com mais de 50 anos
+
+
 
 #16. Sabendo-se que a unidade lógica e aritmética calcula a divisão por meio de subtrações
 #sucessivas, criar um algoritmo que calcule e imprima o resto da divisão de
