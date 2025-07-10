@@ -178,6 +178,7 @@ def q7():
 #11. Imprimir o maior e o menor, sem ordenar, o percentual de números pares e a
 #média dos elementos da lista.
 
+
 #12. Crie um programa para gerenciar um sistema de reservas de mesas em uma casa
 #de espetáculo. A casa possui 30 mesas de 5 lugares cada. O programa deverá
 #permitir que o usuário escolha o código de uma mesa (1 a 30) e forneça a
@@ -200,7 +201,14 @@ def q7():
 #14. Faça um programa que armazene 50 números inteiros em uma lista. O programa
 #deve gerar e imprimir uma segunda lista em que cada elemento é o quadrado do
 #elemento da primeira lista.
-
+def q14():
+    numeros = [random.randint(0,50) for _ in range(50)]
+    print(numeros)
+    resultado = []
+    for num in numeros:
+        num = num * num
+        resultado.append(num)
+    print(resultado)
 #15. Faça um programa que leia e armazene vários números, até digitar o número
 #0. Imprimir quantos números iguais ao último número foram lidos. O limite de
 #números é 100.
@@ -216,6 +224,13 @@ def q7():
 #18. Faça um programa que permita entrar com 20 valores numéricos,
 # em que podem existir vários elementos repetidos. Gere
 #uma lista ordenada que terá apenas os elementos não repetidos.
+def q18():
+    numeros = sorted([random.randint(0,50) for _ in range(20)])
+    unicos_ordenados = sorted(set(numeros))
+    
+    print("Lista original:", numeros)
+    print("Lista ordenada sem repetidos:", unicos_ordenados)
+
 
 #19. Suponha uma estrutura de 30 elementos contendo: código e telefone. Faça
 #um programa que permita buscar pelo código e imprimir o telefone.
